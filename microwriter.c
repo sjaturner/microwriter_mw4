@@ -123,7 +123,9 @@ int inp(int addr)
       {
          data = key_to_code(keys[key_index]);
 
-         if (dwell < 3)
+         printf("@0x%02x\n", keys[key_index]);
+
+         if (dwell < 2)
          {
             ++dwell;
          }
@@ -204,7 +206,7 @@ int main(int argc, char *argv[])
    printf("start\n");
 
    EF1 = 1;
-   EF3 = 1;
+// EF3 = 1;
 
    while (!stop)
    {
