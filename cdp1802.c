@@ -154,10 +154,6 @@ int step(void)
       }
       if (opcode == 0x33)
       {
-         printf("DF:%d P:0x%x R[P]:0x%04x M[R[P]]:0x%02x\n", DF, P, R[P], M[R[P]]);
-      }
-      if (opcode == 0x33)
-      {
          test = DF == 1;
       }
       if (opcode == 0x34)
