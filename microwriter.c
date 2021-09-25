@@ -163,7 +163,7 @@ int main(int argc, char *argv[])
    int in = -1;
    int out = -1;
 
-   while ((opt = getopt(argc, argv, "sr:i:o:")) != -1)
+   while ((opt = getopt(argc, argv, "sr:i:o:d")) != -1)
    {
       switch (opt)
       {
@@ -188,6 +188,19 @@ int main(int argc, char *argv[])
          case 'o':
             unlink(optarg);
             out = open(optarg, O_WRONLY | O_CREAT, 0666);
+            break;
+         case 'd': /* Reset to defaults, otherwise only a few keys may be entered. */
+            keys[key_total++] = 0x00;
+            keys[key_total++] = 0x2f;
+            keys[key_total++] = 0x00;
+            keys[key_total++] = 0x26;
+            keys[key_total++] = 0x00;
+            keys[key_total++] = 0x26;
+            keys[key_total++] = 0x00;
+            keys[key_total++] = 0x2b;
+            keys[key_total++] = 0x00;
+            keys[key_total++] = 0x10;
+            keys[key_total++] = 0x00;
             break;
          default:
             exit(EXIT_FAILURE);
