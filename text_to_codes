@@ -1,0 +1,4 @@
+#!/bin/bash
+
+echo $* | sed -e 's/\(.\)/\1\n/g' | while read c ; do if [[ ! -z $c ]] ; then grep "^$c" letters | cut -d' ' -f2 ; else echo "0x10" ; fi ; done | xargs 
+
