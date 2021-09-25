@@ -2,6 +2,10 @@
 #include <string.h>
 #include <stdint.h>
 
+/*
+ * See https://datasheet.octopart.com/HD43160AH-Hitachi-datasheet-108301.pdf
+ */
+
 static char *charset[] = {
    "+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+",
    "|     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |",

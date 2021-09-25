@@ -190,3 +190,20 @@ keyboard:
 
 Press CTRL-C to exit. If that fails, try CTRL-Z and then kill the
 background process.
+
+## Known bugs
+
+The cursor position looks wrong.
+
+## Implementation notes
+
+* cdp1802.c A simple emulator for the CDP1802/COSMAC processor. This is not coded efficiently but I tried to make the code map over the instruction table in this document http://www.qq22.net/qq22/pdf/1802.pdf
+* display.c This is coded directly from the display controller data sheet below. Entering the pixel information was tedious.
+* microwriter.c Glues the CDP1802 emulator to the display and contains the main program loop.
+* serial_keyboard.c An Arduino program for reading the keyboard and sending key codes to the PC serial port.
+
+## Resources
+
+* The display controller https://datasheet.octopart.com/HD43160AH-Hitachi-datasheet-108301.pdf
+* User manual for the CDP1802 http://bitsavers.trailing-edge.com/components/rca/cosmac/MPM-201A_User_Manual_for_the_CDP1802_COSMAC_Microprocessor_1976.pdf
+* This is another, perhaps more efficient emulator for the CDP1802 https://github.com/wd5gnr/1802UNO
