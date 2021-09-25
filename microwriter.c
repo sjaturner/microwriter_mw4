@@ -15,8 +15,6 @@
 #include <termios.h>
 #include <unistd.h>
 
-int serial_connection;
-
 void outp(int port, uint8_t data)
 {
    if (port == 0x02)
@@ -26,7 +24,6 @@ void outp(int port, uint8_t data)
    else if (port == 0x03)
    {
       character_register(data);
-      printf("character '%c'\n", data);
    }
 }
 
@@ -113,13 +110,10 @@ uint8_t key_to_code(uint8_t key)
 int inp(int addr)
 {
    uint8_t data = 0;
-   if (addr == 4)
+
+   if (addr == 0x04) /* Keyboard port. */
    {
-      if (serial_connection)
-      {
-         data = serial_port_keys(serial);
-      }
-      else if (key_index < key_total)
+      if (key_index < key_total)
       {
          data = key_to_code(keys[key_index]);
 
@@ -134,6 +128,10 @@ int inp(int addr)
             dwell = 0;
             ++key_index;
          }
+      }
+      else if (serial >= 0)
+      {
+         data = serial_port_keys(serial);
       }
       else
       {
@@ -169,7 +167,6 @@ int main(int argc, char *argv[])
       {
          case 's':
             serial = open_port();
-            serial_connection = 1;
             break;
          case 'r':
             rom = open(optarg, O_RDONLY);
@@ -240,11 +237,9 @@ int main(int argc, char *argv[])
       exit(EXIT_FAILURE);
    }
 
-   M[0xffff] = 0xff;
-
-   printf("start\n");
-
+   /* These appear to be necessary. */
    EF1 = 1;
+   M[0xffff] = 0xff;
 
    while (!stop)
    {

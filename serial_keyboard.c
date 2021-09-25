@@ -19,9 +19,9 @@
  *                   +-+
  *                   | |
  *                   +-+
- * PB0            10 | | White         Output, Driven to Zero
+ * PB2            10 | | White         Output, Driven to Zero
  *                   +-+
- * PB0             9 | | Grey          Input with pull-up        Command
+ * PB1             9 | | Grey          Input with pull-up        Command
  *                   +-+
  * PB0             8 | | Blue          Input with pull-up        Thumb
  *                   +-+
