@@ -159,40 +159,49 @@ void interrupt()
 
 int main(int argc, char *argv[])
 {
-   if (!strcmp(argv[1], "-s"))
-   {
-      serial = open_port();
-      serial_connection = 1;
+   int opt = -1;
+   int rom = -1;
+   int in = -1;
+   int out = -1;
 
+   while ((opt = getopt(argc, argv, "sr:i:o:")) != -1)
+   {
+      switch (opt)
+      {
+         case 's':
+            serial = open_port();
+            serial_connection = 1;
+            break;
+         case 'r':
+            rom = open(optarg, 0);
+            if (rom < 0)
+            {
+               assert(0);
+            }
+            break;
+         case 'i':
+            break;
+         case 'o':
+            out = open(optarg, 1);
+            break;
+         default:
+            exit(EXIT_FAILURE);
+      }
+   }
+
+   argv += optind;
+   argc -= optind;
+
+   while (argc > 0)
+   {
+      printf("%s\n", *argv);
+      keys[key_total++] = 0;
+      keys[key_total++] = strtoul(*argv, 0, 0);
       ++argv;
       --argc;
    }
 
-   int rom = open(argv[1], 0);
-   int out = -1;
-
-   if (rom < 0)
-   {
-      assert(0);
-   }
-
-   if (argc >= 3)
-   {
-      out = open(argv[2], 1);
-   }
-
-   if (argc >= 4)
-   {
-      int index = 3;
-
-      for (index = 3; index < argc; ++index)
-      {
-         printf("%s\n", argv[index]);
-         keys[key_total++] = 0;
-         keys[key_total++] = strtoul(argv[index], 0, 0);
-      }
-      keys[key_total++] = 0;
-   }
+   keys[key_total++] = 0;
 
    if (signal(SIGINT, handler) == SIG_ERR)
    {
