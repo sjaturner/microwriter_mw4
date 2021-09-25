@@ -61,8 +61,8 @@ As you can see, there are a number of flags on the command line.
     -d                 # Causes the emulator to send an embedded sequence of keys which force sensible defaults
     -c                 # Clear the screen every time a new display is rendered, otherwise the display scrolls
 
-Any remaining arguments are treated as key code. The key codes are
-hexadecimal patterns reflecting the pattern of keys on the chording
+Any remaining arguments are treated as key codes. The key codes are
+hexadecimal values reflecting the pattern of keys on the chording
 keyboard. Those patterns are summarised in a file called letters in
 this directory. Some scripts have been provided which allow key codes to 
 be generated easily, for example:
@@ -201,13 +201,13 @@ The cursor position looks wrong.
 
 ## Implementation notes
 
-* cdp1802.c A simple emulator for the CDP1802/COSMAC processor. This is not coded efficiently but I tried to make the code map over the instruction table in this document http://www.qq22.net/qq22/pdf/1802.pdf
-* display.c This is coded directly from the display controller data sheet below. Entering the pixel information was tedious.
-* microwriter.c Glues the CDP1802 emulator to the display and contains the main program loop.
-* serial_keyboard.c An Arduino program for reading the keyboard and sending key codes to the PC serial port.
-* letters A text file showing the letter shapes.
-* text_to_codes A script to convert text to key scan codes, uses the letters file.
-* command Converts letters to _Command_ sequences which can control settings and configuration of the Microwriter
+* cdp1802.c - A simple emulator for the CDP1802/COSMAC processor. This is not coded efficiently but I tried to make the code map over the instruction table in this document http://www.qq22.net/qq22/pdf/1802.pdf
+* display.c - This is coded directly from the display controller data sheet below. Entering the pixel information was tedious.
+* microwriter.c - Glues the CDP1802 emulator to the display and contains the main program loop.
+* serial_keyboard.c - An Arduino program for reading the keyboard and sending key codes to the PC serial port.
+* letters - A text file showing the letter shapes.
+* text_to_codes - A script to convert text to key scan codes, uses the letters file.
+* command - Converts letters to _Command_ sequences which can control settings and configuration of the Microwriter
 
 ## Resources
 
