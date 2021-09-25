@@ -208,6 +208,7 @@ static void lookup(char lines[CHAR_ROWS][CHAR_COLS + 1], int code)
 uint8_t display_content[0x100];
 uint32_t cursor_index;
 int cursor_state;
+int clear;
 
 static void render(void)
 {
@@ -218,6 +219,11 @@ static void render(void)
    char display_buffer[CHAR_ROWS + 1][SCREEN_WIDTH * (CHAR_COLS + 1) + 1] = { };
 
    int pixel_col = 0;
+
+   if (clear)
+   {
+      printf("\033[H\033[J");
+   }
 
    for (int index = 0; index < 0x10; ++index)
    {

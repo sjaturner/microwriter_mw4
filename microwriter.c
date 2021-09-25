@@ -161,7 +161,7 @@ int main(int argc, char *argv[])
    int in = -1;
    int out = -1;
 
-   while ((opt = getopt(argc, argv, "sr:i:o:d")) != -1)
+   while ((opt = getopt(argc, argv, "sr:i:o:dc")) != -1)
    {
       switch (opt)
       {
@@ -198,6 +198,9 @@ int main(int argc, char *argv[])
             keys[key_total++] = 0x00;
             keys[key_total++] = 0x10;
             keys[key_total++] = 0x00;
+            break;
+         case 'c':
+            clear = 1;
             break;
          default:
             exit(EXIT_FAILURE);
