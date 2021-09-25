@@ -155,6 +155,12 @@ name for the Arduino.
 
     avrdude done.  Thank you.
 
+Here are a couple of pictures of the keyboard setup:
+
+![Above](./above.jpg)
+
+![Below](./below.jpg)
+
 You may want to test that this works correctly. If you connect using a
 serial terminal, hitting the enter key on your computer keyboard will
 trigger a scan of the Microwriter keyboard.
