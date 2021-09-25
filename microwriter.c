@@ -173,16 +173,22 @@ int main(int argc, char *argv[])
             serial_connection = 1;
             break;
          case 'r':
-            rom = open(optarg, 0);
+            rom = open(optarg, O_RDONLY);
             if (rom < 0)
             {
                assert(0);
             }
             break;
          case 'i':
+            in = open(optarg, O_RDONLY);
+            if (in < 0)
+            {
+               assert(0);
+            }
             break;
          case 'o':
-            out = open(optarg, 1);
+            unlink(optarg);
+            out = open(optarg, O_WRONLY | O_CREAT, 0666);
             break;
          default:
             exit(EXIT_FAILURE);
@@ -208,14 +214,25 @@ int main(int argc, char *argv[])
       perror("signal sigint install handler fail");
    }
 
-   read(rom, M, sizeof M);
+   if (in >= 0)
+   {
+      read(in, M, sizeof M);
+   }
+   else if (rom >= 0)
+   {
+      read(rom, M, sizeof M);
+   }
+   else
+   {
+      printf("no image to run\n");
+      exit(EXIT_FAILURE);
+   }
 
    M[0xffff] = 0xff;
 
    printf("start\n");
 
    EF1 = 1;
-// EF3 = 1;
 
    while (!stop)
    {
