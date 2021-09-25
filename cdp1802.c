@@ -25,18 +25,6 @@ int EF4;
 #define ATLO(X, Y)
 #define ATHI(X, Y)
 
-#if 0
-int inp(int i)
-{
-   return 0;
-}
-
-void outp(int i, uint8_t val)
-{
-   printf("cdp outp %d 0x%02x\n", i, val);
-}
-#endif
-
 int step(void)
 {
    uint8_t opcode = M[R[P]];
