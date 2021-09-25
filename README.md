@@ -201,6 +201,9 @@ The cursor position looks wrong.
 * display.c This is coded directly from the display controller data sheet below. Entering the pixel information was tedious.
 * microwriter.c Glues the CDP1802 emulator to the display and contains the main program loop.
 * serial_keyboard.c An Arduino program for reading the keyboard and sending key codes to the PC serial port.
+* letters A text file showing the letter shapes.
+* text_to_codes A script to convert text to key scan codes, uses the letters file.
+* command Converts letters to _Command_ sequences which can control settings and configuration of the Microwriter
 
 ## Resources
 
