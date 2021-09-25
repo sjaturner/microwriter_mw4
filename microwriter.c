@@ -119,7 +119,7 @@ int inp(int addr)
       {
          data = serial_port_keys(serial);
       }
-      else
+      else if (key_index < key_total)
       {
          data = key_to_code(keys[key_index]);
 
@@ -133,12 +133,11 @@ int inp(int addr)
          {
             dwell = 0;
             ++key_index;
-
-            if (key_index >= key_total)
-            {
-               stop = 1;
-            }
          }
+      }
+      else
+      {
+         stop = 1;
       }
    }
 

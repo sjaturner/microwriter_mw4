@@ -1,0 +1,100 @@
+a 0x0c 
+        #
+       # O
+      O   O
+b 0x07
+        #
+       O #
+      O   #
+c 0x14
+        #
+       O O
+      #   O
+d 0x1c
+        #
+       # O
+      #   O
+e 0x08
+        O
+       # O
+      O   O
+f 0x1e
+        #
+       # #
+      #   O
+g 0x03
+        O
+       O #
+      O   #
+h 0x11
+        O
+       O O
+      #   #
+i 0x18
+        O
+       # O
+      #   O
+j 0x13
+        O
+       O #
+      #   #
+k 0x12
+        O
+       O #
+      #   O
+l 0x19
+        O
+       # O
+      #   #
+m 0x0f
+        #
+       # #
+      O   #
+n 0x06
+        #
+       O #
+      O   O
+o 0x04
+        #
+       O O
+      O   O
+p 0x1f
+        #
+       # #
+      #   #
+q 0x05
+        #
+       O O
+      O   #
+s 0x02
+        O
+       O #
+      O   O
+t 0x0a
+        O
+       # #
+      O   O
+u 0x01
+        O
+       O 0
+      O   #
+v 0x09
+        O
+       # O
+      O   #
+w 0x1b
+        O
+       # #
+      #   #
+x 0x17
+        #
+       O #
+      #   #
+y 0x16
+        #
+       O #
+      #   O
+z 0x15
+        #
+       O O
+      #   #
