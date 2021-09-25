@@ -1,7 +1,7 @@
 # Microwriter MW4 Emulator
 
 The Microwriter MW4 was an innovative early hand held computing device
-with a chording keyboard, first demonstrated in the late 1970's
+with a chording keyboard, first demonstrated in the late 1970's.
 
 * https://en.wikipedia.org/wiki/Microwriter 
 
@@ -12,7 +12,7 @@ Manuals for this device may be found here:
 
 I own one of these devices and extracted the EPROM contents. This
 repository contains a simple emulator for the Microwriter MW4 and some
-additional tools.  If you have, or are able to construct, a microwriter
+additional tools.  If you have, or are able to construct, a Microwriter
 keyboard then you may connect that via a serial port and use the keyboard
 to enter data. You will need an Arduino UNO R3, or similar. The code
 for reading the keyboard is provided in this directory.
@@ -20,7 +20,7 @@ for reading the keyboard is provided in this directory.
 It is also possible to pass key codes to the emulator on the command line.
 
 I contacted Chris Rainey (chris@bellaire.co.uk), co-inventor of the
-Microwriter MW4 and he was kind enough to allow me to publish the EEPROM
+Microwriter MW4 and he was kind enough to allow me to publish the EPROM
 image alongside this emulator.  Please note, this permission is granted
 for non-commercial use only.
 
@@ -160,6 +160,10 @@ Here are a couple of pictures of the keyboard setup:
 ![Above](./above.jpg)
 
 ![Below](./below.jpg)
+
+You will notice that the Microwriter keyboard connector is offset slightly. There's an 
+unconnected pin which fits into the odd gap in the Arduino headers. Please look at the 
+block comment in serial_keyboard.c for more detail.
 
 You may want to test that this works correctly. If you connect using a
 serial terminal, hitting the enter key on your computer keyboard will
